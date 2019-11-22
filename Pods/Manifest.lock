@@ -1,0 +1,22 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - ReachabilitySwift (5.0.0)
+
+DEPENDENCIES:
+  - FMDB
+  - ReachabilitySwift
+
+SPEC REPOS:
+  trunk:
+    - FMDB
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+
+PODFILE CHECKSUM: 00b23f907807bd6a167a946a1129a9940a270171
+
+COCOAPODS: 1.8.4

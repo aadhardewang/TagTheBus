@@ -9,9 +9,15 @@
 import Foundation
 import UIKit
 
-// MARK: - View Controller Identifiers
-let kStationsMapViewController = "StationsMapViewController"
-let kStationsListViewController = "StationsListViewController"
+// MARK: - Annotation Identifier
+let kAnnotation = "Annotation"
 
-// MARK: - Table Cell Identifiers
-let kStationListCell = "StationListCell"
+struct Helper {
+    static func opneAppSettings(completionHandler: @escaping () -> Void) {
+        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: { (_) in
+                completionHandler()
+            })
+        }
+    }
+}

@@ -18,3 +18,15 @@ enum StationPageType: Int {
 enum TransportType: String {
     case bus = "bus"
 }
+
+enum Storyboards: String {
+    case main = "Main"
+}
+
+enum CellIdentifiers: String {
+    case stationList = "StationListCell"
+}
+
+enum DateFormats: String {
+    case dateTime = "dd/MM/yyyy hh:mm a"
+}

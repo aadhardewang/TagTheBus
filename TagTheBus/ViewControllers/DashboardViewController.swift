@@ -25,7 +25,7 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Custom Methods
     func setScreenLayout() {
-        navigationBarButton = UIBarButtonItem(image: UIImage(systemName: "location"), style: .plain, target: self, action: #selector(navigationBarButtonTap(_:)))
+        navigationBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "location"), style: .plain, target: self, action: #selector(navigationBarButtonTap(_:)))
         navigationItem.setRightBarButtonItems([], animated: false)
     }
     
@@ -41,7 +41,7 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func navigationBarButtonTap(_ sender: UIBarButtonItem) {
-        print("Action Performed")
+        stationsPageVC?.didTapOnNavigationButton()
     }
     
     // MARK: - Navigation

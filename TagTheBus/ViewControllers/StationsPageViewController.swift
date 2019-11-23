@@ -8,18 +8,13 @@
 
 import UIKit
 
-protocol StationsPageViewControllerProtocol: NSObjectProtocol {
-    func updateSelectedSegment(pageIndex: Int)
-}
-
 class StationsPageViewController: UIPageViewController {
 
     /// Properties
     var pages = [UIViewController]()
     var currentPage = StationPageType.list
     var pendingIndex = StationPageType.map
-    weak var delegateStations: StationsPageViewControllerProtocol?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +23,10 @@ class StationsPageViewController: UIPageViewController {
     }
     
     // MARK: - Custom Methods
-    func setScreenLayout() {
-        let listPage = storyboard?.instantiateViewController(withIdentifier: kStationsListViewController) as! StationsListViewController
+    private func setScreenLayout() {
+        let listPage = StationsListViewController.instance()
         pages.append(listPage)
-        let mapPage = storyboard?.instantiateViewController(withIdentifier: kStationsMapViewController) as! StationsMapViewController
+        let mapPage = StationsMapViewController.instance()
         pages.append(mapPage)
         
         delegate = self
@@ -46,6 +41,12 @@ class StationsPageViewController: UIPageViewController {
                 setViewControllers([pages[type.rawValue]], direction: .forward, animated: true, completion: nil)
             }
             currentPage = type
+        }
+    }
+    
+    func didTapOnNavigationButton() {
+        if let stationsMapVC = pages.filter({ $0 is StationsMapViewController }).first as? StationsMapViewController {
+            stationsMapVC.updateUserLocation()
         }
     }
 }
@@ -79,7 +80,6 @@ extension StationsPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
             currentPage = pendingIndex
-            delegateStations?.updateSelectedSegment(pageIndex: currentPage.rawValue)
         }
     }
 }

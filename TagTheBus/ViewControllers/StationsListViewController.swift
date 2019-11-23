@@ -10,24 +10,47 @@ import UIKit
 
 class StationsListViewController: UIViewController {
     
+    let dashboardViewModel = DashboardViewModel()
+    
     /// Outlets
     @IBOutlet weak var stationListTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getNearbyStations()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - API calling
+    private func getNearbyStations() {
+        dashboardViewModel.getNearBusStations { (errorMessage) in
+            if let message = errorMessage {
+                self.displayAlert(with: "Error!", message: message, buttonTitles: ["Ok"]) { (_) in
+                }
+            }
+            DispatchQueue.main.async {
+                self.stationListTableView.reloadData()
+            }
+        }
     }
-    */
+}
 
+extension StationsListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dashboardViewModel.transportStations.nearByStations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.stationList.rawValue)
+        let station = dashboardViewModel.transportStations.nearByStations[indexPath.row]
+        cell?.textLabel?.text = station.streetName
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC = StationDetailViewController.instance() as! StationDetailViewController
+        destinationVC.setStationDetail(dashboardViewModel.transportStations.nearByStations[indexPath.row])
+        if let navigator = navigationController {
+            navigator.pushViewController(destinationVC, animated: true)
+        }
+    }
 }

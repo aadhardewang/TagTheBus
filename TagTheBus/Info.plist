@@ -65,5 +65,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>TagTheBus needs to access your camera for adding the picture of stations</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>TagTheBus would like to access your photos to allow you to choose a picture for station.</string>
 </dict>
 </plist>

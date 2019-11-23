@@ -11,7 +11,7 @@ import UIKit
 class DashboardViewModel: NSObject {
     
     var transportStations = TransportStationModel()
-    
+        
     func getNearBusStations(complitionHandler: @escaping (String?) -> Void) {
         APIInterface.shared.getNearBusStations(with: 41.3985182, longitude: 2.1917991) { (response) in
             switch response {

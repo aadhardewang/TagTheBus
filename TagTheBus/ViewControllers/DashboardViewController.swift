@@ -10,11 +10,10 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
-    /// Outlets
     @IBOutlet weak var mapListSegmentedControl: UISegmentedControl!
+    
     var navigationBarButton: UIBarButtonItem!
     
-    /// Properties
     weak var stationsPageVC: StationsPageViewController?
     
     override func viewDidLoad() {
@@ -24,7 +23,7 @@ class DashboardViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    func setScreenLayout() {
+    private func setScreenLayout() {
         navigationBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "location"), style: .plain, target: self, action: #selector(navigationBarButtonTap(_:)))
         navigationItem.setRightBarButtonItems([], animated: false)
     }

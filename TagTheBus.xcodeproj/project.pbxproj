@@ -17,6 +17,13 @@
 		206ACE642389316B00134EFF /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206ACE632389316B00134EFF /* NSObjectExtension.swift */; };
 		206ACE692389339900134EFF /* StationDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206ACE682389339900134EFF /* StationDetailTableViewCell.swift */; };
 		206ACE6B238933D800134EFF /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206ACE6A238933D800134EFF /* PermissionManager.swift */; };
+		206BE8D4238AB5D9005DAC7F /* CustomActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BE8D3238AB5D9005DAC7F /* CustomActivityItem.swift */; };
+		207C1FFD238ABEEC0071A8B4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C1FFC238ABEEC0071A8B4 /* LocationManager.swift */; };
+		207C1FFF238AC73A0071A8B4 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C1FFE238AC73A0071A8B4 /* UIViewExtension.swift */; };
+		207C2001238AC9C10071A8B4 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C2000238AC9C10071A8B4 /* LoaderView.swift */; };
+		207C2003238AC9D80071A8B4 /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207C2002238AC9D80071A8B4 /* LoaderView.xib */; };
+		207C2005238ACB210071A8B4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C2004238ACB210071A8B4 /* UIWindowExtension.swift */; };
+		207C2007238AD47F0071A8B4 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207C2006238AD47F0071A8B4 /* UITableViewExtension.swift */; };
 		20B406FE23896B9100B265D1 /* AddStationImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B406FD23896B9100B265D1 /* AddStationImageViewModel.swift */; };
 		20B4070123896EF100B265D1 /* StationsAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4070023896EF100B265D1 /* StationsAnnotation.swift */; };
 		20B40703238974DE00B265D1 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B40702238974DE00B265D1 /* StringExtension.swift */; };
@@ -80,6 +87,13 @@
 		206ACE632389316B00134EFF /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		206ACE682389339900134EFF /* StationDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationDetailTableViewCell.swift; sourceTree = "<group>"; };
 		206ACE6A238933D800134EFF /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		206BE8D3238AB5D9005DAC7F /* CustomActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityItem.swift; sourceTree = "<group>"; };
+		207C1FFC238ABEEC0071A8B4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		207C1FFE238AC73A0071A8B4 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		207C2000238AC9C10071A8B4 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		207C2002238AC9D80071A8B4 /* LoaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
+		207C2004238ACB210071A8B4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		207C2006238AD47F0071A8B4 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		20B406FD23896B9100B265D1 /* AddStationImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStationImageViewModel.swift; sourceTree = "<group>"; };
 		20B4070023896EF100B265D1 /* StationsAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsAnnotation.swift; sourceTree = "<group>"; };
 		20B40702238974DE00B265D1 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -178,6 +192,7 @@
 				20FFCED32389517E009DCB03 /* DocumentsManager */,
 				206ACE5E2389283100134EFF /* DatabaseManager */,
 				206ACE652389329700134EFF /* PermissionManager */,
+				207C1FFB238ABECA0071A8B4 /* LocationManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -190,10 +205,21 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		207C1FFB238ABECA0071A8B4 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				207C1FFC238ABEEC0071A8B4 /* LocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		20B406FF23896ED100B265D1 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
 				20B4070023896EF100B265D1 /* StationsAnnotation.swift */,
+				206BE8D3238AB5D9005DAC7F /* CustomActivityItem.swift */,
+				207C2000238AC9C10071A8B4 /* LoaderView.swift */,
+				207C2002238AC9D80071A8B4 /* LoaderView.xib */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -321,6 +347,9 @@
 				206ACE632389316B00134EFF /* NSObjectExtension.swift */,
 				20B40702238974DE00B265D1 /* StringExtension.swift */,
 				20B4070423897A6B00B265D1 /* DateExtension.swift */,
+				207C1FFE238AC73A0071A8B4 /* UIViewExtension.swift */,
+				207C2004238ACB210071A8B4 /* UIWindowExtension.swift */,
+				207C2006238AD47F0071A8B4 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -479,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6419656D238677E800F545DA /* LaunchScreen.storyboard in Resources */,
+				207C2003238AC9D80071A8B4 /* LoaderView.xib in Resources */,
 				6419656A238677E800F545DA /* Assets.xcassets in Resources */,
 				64196568238677E000F545DA /* Main.storyboard in Resources */,
 			);
@@ -617,6 +647,7 @@
 				206ACE592389033100134EFF /* StationImageDetailViewModel.swift in Sources */,
 				206ACE552388F5EC00134EFF /* StationDetailViewModel.swift in Sources */,
 				206ACE642389316B00134EFF /* NSObjectExtension.swift in Sources */,
+				206BE8D4238AB5D9005DAC7F /* CustomActivityItem.swift in Sources */,
 				20B40703238974DE00B265D1 /* StringExtension.swift in Sources */,
 				641965BE2386C6AE00F545DA /* DictionaryExtension.swift in Sources */,
 				206ACE532388851F00134EFF /* StationDetailViewController.swift in Sources */,
@@ -628,6 +659,7 @@
 				641965942386869100F545DA /* StationsPageViewController.swift in Sources */,
 				64196561238677E000F545DA /* AppDelegate.swift in Sources */,
 				206ACE57238901A700134EFF /* StationImageDetailViewController.swift in Sources */,
+				207C2005238ACB210071A8B4 /* UIWindowExtension.swift in Sources */,
 				649754442387CECF00BC4530 /* APIInterface.swift in Sources */,
 				641965C02386D1AC00F545DA /* DashboardViewController.swift in Sources */,
 				20B406FE23896B9100B265D1 /* AddStationImageViewModel.swift in Sources */,
@@ -635,14 +667,18 @@
 				641965BB2386C37300F545DA /* TransportStationModel.swift in Sources */,
 				649754412387CECF00BC4530 /* NetworkHttpClient.swift in Sources */,
 				64196598238688BE00F545DA /* StationsListViewController.swift in Sources */,
+				207C2007238AD47F0071A8B4 /* UITableViewExtension.swift in Sources */,
 				649754472387D3C700BC4530 /* DataExtension.swift in Sources */,
+				207C2001238AC9C10071A8B4 /* LoaderView.swift in Sources */,
 				206ACE5B23890FEA00134EFF /* AddStationImageViewController.swift in Sources */,
 				649754402387CECF00BC4530 /* APIManager.swift in Sources */,
 				641965B32386B8EA00F545DA /* Enums.swift in Sources */,
+				207C1FFF238AC73A0071A8B4 /* UIViewExtension.swift in Sources */,
 				64196563238677E000F545DA /* SceneDelegate.swift in Sources */,
 				206ACE6B238933D800134EFF /* PermissionManager.swift in Sources */,
 				649754432387CECF00BC4530 /* APIResponse.swift in Sources */,
 				20FFCED023894F23009DCB03 /* StationImageDetailModel.swift in Sources */,
+				207C1FFD238ABEEC0071A8B4 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,13 +853,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JDKN8PA7V;
 				INFOPLIST_FILE = TagTheBus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Aadhar.TagTheBus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadhar.TagTheBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -836,13 +873,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JDKN8PA7V;
 				INFOPLIST_FILE = TagTheBus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Aadhar.TagTheBus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadhar.TagTheBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

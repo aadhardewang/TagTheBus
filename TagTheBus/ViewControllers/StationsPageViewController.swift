@@ -10,7 +10,6 @@ import UIKit
 
 class StationsPageViewController: UIPageViewController {
 
-    /// Properties
     var pages = [UIViewController]()
     var currentPage = StationPageType.list
     var pendingIndex = StationPageType.map
@@ -28,7 +27,6 @@ class StationsPageViewController: UIPageViewController {
         pages.append(listPage)
         let mapPage = StationsMapViewController.instance()
         pages.append(mapPage)
-        
         delegate = self
         setViewControllers([pages[0]], direction: .forward, animated: false, completion: nil)
     }

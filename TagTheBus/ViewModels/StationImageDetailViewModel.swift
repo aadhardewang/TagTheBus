@@ -9,5 +9,7 @@
 import UIKit
 
 class StationImageDetailViewModel: NSObject {
+    
+    var stationImageDetailModel: StationImageDetailModel?
 
 }

@@ -10,10 +10,9 @@ import UIKit
 
 class StationsListViewController: UIViewController {
     
-    let dashboardViewModel = DashboardViewModel()
+    @IBOutlet weak var tableView: UITableView!
     
-    /// Outlets
-    @IBOutlet weak var stationListTableView: UITableView!
+    let dashboardViewModel = DashboardViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,9 @@ class StationsListViewController: UIViewController {
                 }
             }
             DispatchQueue.main.async {
-                self.stationListTableView.reloadData()
+                self.tableView.reloadData()
+                self.dashboardViewModel.transportStations.nearByStations.count == 0 ? self.tableView.displayBackground(text: "No Stations Available") : self.tableView.removeBackgroundText()
+                self.tableView.tableFooterView = UIView()
             }
         }
     }

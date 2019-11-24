@@ -28,11 +28,11 @@ extension APIManager {
             return
         }
         if showHUD {
-//            SVProgressHUD.show()
+            LoaderView.show()
         }
         callRestAPIWith(endPoint, httpMethod: .get, parameters: parameters, headers: headers) { (response) in
             if showHUD {
-//                SVProgressHUD.dismiss()
+                LoaderView.hide()
             }
             completionHandler(response)
         }
@@ -44,11 +44,11 @@ extension APIManager {
             return
         }
         if showHUD {
-//            SVProgressHUD.show()
+            LoaderView.show()
         }
         callRestAPIWith(endPoint, httpMethod: .post, parameters: parameters, headers: headers) { (response) in
             if showHUD {
-//                SVProgressHUD.dismiss()
+                LoaderView.hide()
             }
             completionHandler(response)
         }
@@ -60,11 +60,11 @@ extension APIManager {
             return
         }
         if showHUD {
-//            SVProgressHUD.show()
+            LoaderView.show()
         }
         callRestAPIWith(endPoint, httpMethod: .put, parameters: parameters, headers: headers) { (response) in
             if showHUD {
-//                SVProgressHUD.dismiss()
+                LoaderView.hide()
             }
             completionHandler(response)
         }
@@ -76,11 +76,11 @@ extension APIManager {
             return
         }
         if showHUD {
-//            SVProgressHUD.show()
+            LoaderView.show()
         }
         callRestAPIWith(endPoint, httpMethod: .delete, parameters: parameters, headers: headers) { (response) in
             if showHUD {
-//                SVProgressHUD.dismiss()
+                LoaderView.hide()
             }
             completionHandler(response)
         }

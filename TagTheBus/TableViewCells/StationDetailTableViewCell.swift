@@ -10,7 +10,6 @@ import UIKit
 
 class StationDetailTableViewCell: UITableViewCell {
     
-    /// Outlets
     @IBOutlet weak var stationImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

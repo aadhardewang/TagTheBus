@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
-// MARK: - Annotation Identifier
-let kAnnotation = "Annotation"
+struct ScreenSize {
+    static let width = UIScreen.main.bounds.width
+    static let height = UIScreen.main.bounds.height
+}
 
 struct Helper {
     static func opneAppSettings(completionHandler: @escaping () -> Void) {
@@ -21,3 +23,5 @@ struct Helper {
         }
     }
 }
+
+

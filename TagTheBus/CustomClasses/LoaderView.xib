@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoaderView" customModule="TagTheBus" customModuleProvider="target">
+            <connections>
+                <outlet property="activityContainerView" destination="cxQ-UB-CXx" id="WBi-LF-4mm"/>
+                <outlet property="activityIndicator" destination="fD5-B2-96b" id="Azd-wc-pnl"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="qsl-iI-xMm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxQ-UB-CXx">
+                    <rect key="frame" x="147" y="388" width="120" height="120"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWF-C3-l9s">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="I4O-Ac-fka">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="dark"/>
+                        </visualEffectView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="FWF-C3-l9s" secondAttribute="bottom" id="Bxx-2b-Lp0"/>
+                        <constraint firstItem="FWF-C3-l9s" firstAttribute="top" secondItem="cxQ-UB-CXx" secondAttribute="top" id="Hwx-gB-mk6"/>
+                        <constraint firstAttribute="height" constant="120" id="g4q-vk-BhG"/>
+                        <constraint firstItem="FWF-C3-l9s" firstAttribute="leading" secondItem="cxQ-UB-CXx" secondAttribute="leading" id="hg0-eb-kU7"/>
+                        <constraint firstAttribute="trailing" secondItem="FWF-C3-l9s" secondAttribute="trailing" id="oLK-OP-YoM"/>
+                        <constraint firstAttribute="width" secondItem="cxQ-UB-CXx" secondAttribute="height" multiplier="1:1" id="zmc-YQ-Lkw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-B2-96b">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cxQ-UB-CXx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="031-BD-63N"/>
+                <constraint firstItem="cxQ-UB-CXx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Ls-7I-7xe"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="111"/>
+        </view>
+    </objects>
+</document>

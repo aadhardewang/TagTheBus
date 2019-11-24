@@ -14,10 +14,12 @@ protocol AddStationImageProtocol: NSObjectProtocol {
 
 class AddStationImageViewController: UIViewController {
     
-    /// Outlets
     @IBOutlet weak var stationImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+    
     var saveButton: UIBarButtonItem!
+    
     private let addStationImageViewModel = AddStationImageViewModel()
     weak var delegate: AddStationImageProtocol?
     
@@ -56,7 +58,19 @@ class AddStationImageViewController: UIViewController {
 }
 
 extension AddStationImageViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        imageViewTopConstraint.constant = -100
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        imageViewTopConstraint.constant = 20
         addStationImageViewModel.updateTitle(textField.text ?? "")
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }

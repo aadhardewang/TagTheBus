@@ -10,10 +10,8 @@ import UIKit
 
 class StationDetailViewController: UIViewController {
     
-    /// Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    /// Properties
     var navigationBarButton: UIBarButtonItem!
     let stationDetailViewModel = StationDetailViewModel()
 
@@ -24,11 +22,11 @@ class StationDetailViewController: UIViewController {
         setScreenLayout()
     }
     
+    // MARK: - Custom Methods
     func setStationDetail(_ stationDetails: StationsModel) {
         stationDetailViewModel.stationDetails = stationDetails
     }
     
-    // MARK: - Custom Methods
     private func setScreenLayout() {
         navigationItem.title = stationDetailViewModel.stationDetails?.streetName
         navigationBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "add"), style: .plain, target: self, action: #selector(navigationBarButtonTap(_:)))
@@ -36,6 +34,8 @@ class StationDetailViewController: UIViewController {
         stationDetailViewModel.getStationImageDetails()
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.stationDetailViewModel.stationImageDetails.count == 0 ? self.tableView.displayBackground(text: "No Images Available") : self.tableView.removeBackgroundText()
+            self.tableView.tableFooterView = UIView()
         }
     }
     
@@ -78,6 +78,7 @@ extension StationDetailViewController: AddStationImageProtocol {
         stationDetailViewModel.addImageDetail(stationImageDetail)
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.stationDetailViewModel.stationImageDetails.count == 0 ? self.tableView.displayBackground(text: "No Images Available") : self.tableView.removeBackgroundText()
         }
     }
 }
@@ -115,6 +116,15 @@ extension StationDetailViewController: UITableViewDataSource, UITableViewDelegat
                     self.tableView.endUpdates()
                 }
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC = StationImageDetailViewController.instance() as! StationImageDetailViewController
+        let stationImageDetail = stationDetailViewModel.stationImageDetails[indexPath.row]
+        destinationVC.setStationImageDetail(stationImageDetail)
+        if let navigator = navigationController {
+            navigator.pushViewController(destinationVC, animated: true)
         }
     }
 }

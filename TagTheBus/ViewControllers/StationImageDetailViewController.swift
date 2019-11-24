@@ -10,11 +10,10 @@ import UIKit
 
 class StationImageDetailViewController: UIViewController {
     
-    /// Outlets
     @IBOutlet weak var stationImageView: UIImageView!
     
-    /// Properties
-    var navigationBarButton: UIBarButtonItem!
+    var navigationBarShareButton: UIBarButtonItem!
+    let stationImageDetailViewModel = StationImageDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +23,29 @@ class StationImageDetailViewController: UIViewController {
     }
     
     //MARK: - Custom Methods
-    func setScreenLayout() {
-        navigationBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(navigationBarButtonTap(_:)))
-        navigationBarButton.tintColor = .systemBlue
-        navigationItem.setRightBarButtonItems([navigationBarButton], animated: false)
+    private func setScreenLayout() {
+        navigationItem.title = stationImageDetailViewModel.stationImageDetailModel?.title
+        navigationBarShareButton = UIBarButtonItem.init(barButtonSystemItem: .action, target: self, action: #selector(navigationBarButtonTap(_:)))
+        navigationBarShareButton.tintColor = .systemBlue
+        navigationItem.setRightBarButtonItems([navigationBarShareButton], animated: false)
+        stationImageView.image = stationImageDetailViewModel.stationImageDetailModel?.image
+    }
+    
+    func setStationImageDetail(_ stationImageDetailModel: StationImageDetailModel) {
+        stationImageDetailViewModel.stationImageDetailModel = stationImageDetailModel
     }
     
     // MARK: - Action Methods
     @IBAction func navigationBarButtonTap(_ sender: UIBarButtonItem) {
+        let str = CustomActivityItem()
+        str.title = stationImageDetailViewModel.stationImageDetailModel?.title
+        let image = CustomActivityItem()
+        image.image = stationImageDetailViewModel.stationImageDetailModel?.image
+        
+        let activity = UIActivityViewController(activityItems: [str, image], applicationActivities: nil)
+        activity.excludedActivityTypes = [.postToWeibo, .message, .print, .copyToPasteboard, .assignToContact, .saveToCameraRoll, .addToReadingList, .postToFlickr, .postToVimeo, .postToTencentWeibo, .airDrop, .openInIBooks, .markupAsPDF, UIActivity.ActivityType(rawValue: "com.apple.reminders.RemindersEditorExtension"),
+        UIActivity.ActivityType(rawValue: "com.apple.mobilenotes.SharingExtension"), UIActivity.ActivityType(rawValue: "com.apple.mobileslideshow.StreamShareService")]
+        present(activity, animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -11,7 +11,6 @@ import MapKit
 
 class StationsMapViewController: UIViewController {
 
-    /// Outlets
     @IBOutlet weak var mapView: MKMapView!
     
     let dashboardViewModel = DashboardViewModel()
@@ -25,6 +24,7 @@ class StationsMapViewController: UIViewController {
     
     // MARK: - Custom Methods
     private func setScreenLayout() {
+        _ = LocationManager.shared.locationManager
         mapView.delegate = self
         mapView.showsUserLocation = true
         getNearbyStations()
@@ -53,7 +53,9 @@ class StationsMapViewController: UIViewController {
     }
     
     func updateUserLocation() {
-        if let coordinate = mapView.userLocation.location?.coordinate {
+        if CLLocationCoordinate2DIsValid(LocationManager.shared.coordinate) {
+            mapView.setCenter(LocationManager.shared.coordinate, animated: true)
+        } else if let coordinate = mapView.userLocation.location?.coordinate {
             mapView.setCenter(coordinate, animated: true)
         }
     }
@@ -75,9 +77,9 @@ class StationsMapViewController: UIViewController {
 extension StationsMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is MKPointAnnotation else { return nil }
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: kAnnotation)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationsIdentifiers.stations.rawValue)
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: kAnnotation)
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: AnnotationsIdentifiers.stations.rawValue)
             annotationView!.canShowCallout = true
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {

@@ -8,13 +8,11 @@
 
 import Foundation
 
-// For Page type
 enum StationPageType: Int {
     case list = 0
     case map
 }
 
-// For Transport Type
 enum TransportType: String {
     case bus = "bus"
 }
@@ -25,6 +23,10 @@ enum Storyboards: String {
 
 enum CellIdentifiers: String {
     case stationList = "StationListCell"
+}
+
+enum AnnotationsIdentifiers: String {
+    case stations = "StationsAnnotation"
 }
 
 enum DateFormats: String {

@@ -19,7 +19,6 @@ class DocumentsManager: NSObject {
         if let data = image.jpegData(compressionQuality:  1.0), !fileExists {
             do {
                 try data.write(to: fileURL)
-                print("file saved")
                 return true
             } catch {
                 print("error saving file:", error)

@@ -51,13 +51,10 @@ public class ReachabilityManager: NSObject {
             switch reachability.connection {
             case .wifi:
                 isNetworkAvailable = true
-                print("Reachable via WiFi")
             case .cellular:
                 isNetworkAvailable = true
-                print("Reachable via Cellular")
             case .unavailable, .none:
                 isNetworkAvailable = false
-                print("Network not reachable")
             }
         }
     }

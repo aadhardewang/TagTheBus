@@ -48,7 +48,6 @@ class DatabaseManager: NSObject {
         }
         let allColumnWithDataType = DBConstants.StationsTableColumns.allCases.map({ "\($0.rawValue) \($0.dataType)" }).joined(separator: ", ")
         let createTable = "CREATE TABLE IF NOT EXISTS \(DBConstants.Tables.stations.rawValue) (\(allColumnWithDataType));"
-        print(createTable)
         let tableCreated = executeStatements(createTable)
         print(tableCreated ? "Table created" : "Error while creating \(DBConstants.Tables.stations.rawValue)" )
     }
@@ -59,14 +58,12 @@ class DatabaseManager: NSObject {
         guard let image = station.image, DocumentsManager.save(image: image, with: imageName) else {
             return newIndex
         }
-        print("databasePath -> \(databasePath)")
         let database = FMDatabase(path: databasePath)
         if database.open() {
             let columns: [DBConstants.StationsTableColumns] = [.stationId, .image, .title, .createDateTime]
             let columnsString = columns.map({ $0.rawValue }).joined(separator: ", ")
             let values = "\(station.stationId), '\(imageName)', '\(station.title.validStringToStoreInDB)', \(station.date.timeIntervalSince1970)"
             let insert = "INSERT INTO \(DBConstants.Tables.stations.rawValue) (\(columnsString)) VALUES (\(values));"
-            print("insert >>>>>>>> \(insert)")
             let status = database.executeStatements(insert)
             if status {
                 newIndex = Int(database.lastInsertRowId)
@@ -78,11 +75,9 @@ class DatabaseManager: NSObject {
     
     func getImageDetails(from stationId: Int) -> [StationImageDetailModel] {
         var stationImages = [StationImageDetailModel]()
-        print("databasePath -> \(databasePath)")
         let database = FMDatabase(path: databasePath)
         if database.open() {
             let fetch = "SELECT * FROM \(DBConstants.Tables.stations.rawValue) WHERE \(DBConstants.StationsTableColumns.stationId.rawValue) = \(stationId);"
-            print("fetch -> \(fetch)")
             if let results = database.executeQuery(fetch, withArgumentsIn: []) {
                 while results.next() {
                     if let result = results.resultDictionary as? [String: Any] {
@@ -99,7 +94,6 @@ class DatabaseManager: NSObject {
     func deleteImageDetail(from stationImageId: Int, imageName: String) -> Bool {
         print("databasePath -> \(databasePath)")
         let delete = "DELETE FROM \(DBConstants.Tables.stations.rawValue) WHERE \(DBConstants.StationsTableColumns.id.rawValue) = \(stationImageId);"
-        print("delete -> \(delete)")
         let status = executeStatements(delete)
         if status {
             DocumentsManager.deleteFile(for: imageName)

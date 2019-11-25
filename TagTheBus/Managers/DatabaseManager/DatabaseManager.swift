@@ -92,7 +92,6 @@ class DatabaseManager: NSObject {
     }
     
     func deleteImageDetail(from stationImageId: Int, imageName: String) -> Bool {
-        print("databasePath -> \(databasePath)")
         let delete = "DELETE FROM \(DBConstants.Tables.stations.rawValue) WHERE \(DBConstants.StationsTableColumns.id.rawValue) = \(stationImageId);"
         let status = executeStatements(delete)
         if status {
